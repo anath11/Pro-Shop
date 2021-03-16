@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import products from '../products'
-// import products from '../products'
+import Rating from './Rating'
 
 const Product = ({product}) => {
     return (
@@ -12,19 +12,18 @@ const Product = ({product}) => {
 
           <Card.Body>
             <a href={`/product/${product._id}`}>
-                <Card.Title as='div'><strong>{products.name}</strong></Card.Title>
+                <Card.Title as='div'><strong>{product.name}</strong></Card.Title>
             </a>
 
                 <Card.Text as='div'>    
                     <div className='my-3'>
                         {product.rating} from {product.numReviews} reviews
                     </div>
+
                 </Card.Text>
 
                 <Card.Text as='h3'>    
                     ${product.price}
-                    
-                    <h2>Delete this and start from video no.4 rating Component</h2>
                 </Card.Text>
 
          </Card.Body>
