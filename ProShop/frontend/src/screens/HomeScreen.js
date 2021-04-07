@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {Row, Col, Pagination} from 'react-bootstrap'
 import Product from '../components/Product.js'
@@ -6,6 +7,9 @@ import Message from '../components/Message.js'
 import Loader from '../components/Loader.js'
 import Paginate from '../components/Paginate.js'
 import { listProducts } from '../actions/productActions.js'
+import ProductCarousel from '../components/ProductCarousel.js'
+import Meta from '../components/Meta.js'
+import Helmet from 'react-helmet'
 //import axios from 'axios'
 
 
@@ -28,6 +32,10 @@ const HomeScreen = ({match}) => {
 
     return (
         <>
+       <Meta/>
+        {!keyword ? <ProductCarousel/> : <Link to='/' className='btn btn-light'>
+            Go Back    
+        </Link>}
          <h1>Latest Products</h1>
             {loading ? (
             <Loader/>
